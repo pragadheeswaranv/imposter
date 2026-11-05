@@ -121,6 +121,49 @@ body.on-now #player{display:none!important}
 .qtxt b,.qtxt small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .qtxt small{opacity:.7;font-size:13px}
 .qrow2 button{padding:5px 8px;font-size:12px;box-shadow:2px 2px 0 var(--ink)}
+/* bars, album cards, cover boxes, queue pop-up */
+.bars{display:flex;flex-direction:column;background:#fff;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.bars .sect{background:var(--ink);color:var(--paper);padding:6px 12px;margin:0;font-size:12px}
+.tbar{display:flex;align-items:center;gap:8px;border-bottom:2px solid var(--ink);background:#fff;touch-action:pan-y;transition:transform .15s,background .15s;position:relative}
+.tbar:last-child{border-bottom:0}
+.tbar.armed{background:var(--yel)}
+.tbar-main{flex:1;min-width:0;display:flex;align-items:center;gap:10px;border:0;background:none;padding:6px 10px;cursor:pointer;text-align:left;font:inherit;color:var(--ink);min-height:52px}
+.tbar-main:hover{background:rgba(242,194,48,.25)}
+.tbar .thumb{width:42px;height:42px;border-width:2px}
+.tb-txt{flex:1;min-width:0}
+.tb-txt b,.tb-txt small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tb-txt b{text-transform:uppercase;font-weight:800;font-size:15px}
+.tb-txt small{color:#555;font-size:13px}
+.tb-q{margin-right:8px;padding:5px 8px;font-size:12px;box-shadow:2px 2px 0 var(--ink);flex:none}
+[data-swipe]{touch-action:pan-y}
+.acards{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:20px}
+.acard{background:#fff;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:10px;text-align:left;cursor:pointer;font:inherit;color:var(--ink);transition:.15s;min-width:0}
+.acard:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink)}
+.acov{display:block;width:100%;aspect-ratio:1;border:3px solid var(--ink);overflow:hidden}
+.acov img{width:100%;height:100%;object-fit:cover;display:block}
+.acov .art{aspect-ratio:auto;width:100%;height:100%}
+.acard b,.acard small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acard b{margin-top:10px;text-transform:uppercase;font-weight:800}
+.acard small{color:#555}
+.adet-top{margin-bottom:14px}
+.adet{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:18px;padding-bottom:18px;border-bottom:4px solid var(--ink)}
+.thumb.big{width:130px;height:130px;flex:none}
+.adet-info{flex:1;min-width:200px}
+.adet-info h2{margin:0 0 6px;font-size:32px;text-transform:uppercase;font-weight:900;line-height:1}
+.adet-info p{margin:4px 0}
+.coverzone{border:3px dashed var(--ink);padding:12px;display:flex;flex-direction:column;gap:8px;background:#fff;margin-top:6px}
+.coverzone:focus{outline:none;box-shadow:4px 4px 0 var(--blue)}
+.coverzone input{margin:0}
+.coverzone .hint{margin:0}
+.cnt{background:var(--red);color:#fff;padding:2px 10px;border:2px solid var(--ink);font-size:16px;vertical-align:middle}
+.qsheet{width:min(560px,100%);max-height:86vh;overflow-y:auto}
+.qsheet .qrow2{flex-wrap:wrap}
+.qrow2{display:flex;align-items:center;gap:10px;padding:8px;border-bottom:3px solid var(--ink);background:#fff}
+.qrow2 .thumb{width:46px;height:46px}
+.qtxt{flex:1;min-width:0}
+.qtxt b,.qtxt small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.qtxt small{opacity:.7;font-size:13px}
+.qrow2 button{padding:5px 8px;font-size:12px;box-shadow:2px 2px 0 var(--ink)}
 /* studio page */
 .alist{border:3px solid var(--ink);max-height:260px;overflow-y:auto;background:#fff;margin-top:6px}
 .aopt{display:flex;align-items:center;gap:12px;width:100%;border:0;border-bottom:2px solid var(--ink);background:#fff;padding:8px 10px;cursor:pointer;text-align:left;font:inherit;color:var(--ink)}
@@ -178,6 +221,67 @@ body.on-now #player{display:none!important}
 #toast{position:fixed;left:50%;top:calc(80px + env(safe-area-inset-top,0px));transform:translate(-50%,-16px);background:var(--blue);color:#fff;padding:10px 18px;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);opacity:0;pointer-events:none;transition:.3s;z-index:40;max-width:92%;text-align:center;font-weight:600}
 #toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
 #toast button{margin-left:8px;border:2px solid var(--ink);background:var(--yel);color:var(--ink);font:inherit;font-weight:800;padding:3px 10px;cursor:pointer}
+/* ---------- mobile layout (phones) ---------- */
+img{max-width:100%}
+@media (max-width:640px){
+  header{padding:10px 14px;gap:8px}
+  .logo{font-size:22px;letter-spacing:2px;gap:8px}
+  .logo-img{width:34px;height:34px}
+  .live{font-size:11px;letter-spacing:.5px}
+  nav{margin-left:0;width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+  nav button{padding:9px 4px;font-size:12px;letter-spacing:0;box-shadow:2px 2px 0 var(--ink);min-height:44px}
+  main{padding:18px 14px 150px}
+  h1{font-size:36px;margin:2px 0 8px}
+  .lead{font-size:16px;margin-bottom:14px}
+  .shapes{margin-bottom:10px}
+  .shapes i{width:26px;height:26px}
+  .shapes .t{width:28px;height:26px}
+  input,select,textarea{font-size:16px;min-height:44px}
+  .chips{margin:0 -14px;padding:12px 14px}
+  .chips button{min-height:40px;padding:6px 14px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px}
+  .card{box-shadow:3px 3px 0 var(--ink);padding:8px}
+  .card:hover{transform:none;box-shadow:3px 3px 0 var(--ink)}
+  .card b{font-size:15px}
+  .cbtns button{min-height:34px}
+  .tbar-main{min-height:58px}
+  .tb-q{min-height:38px}
+  .plans{grid-template-columns:1fr;gap:20px}
+  .panel{padding:16px;box-shadow:4px 4px 0 var(--ink);max-width:100%}
+  .stabs{gap:6px}
+  .stabs button{flex:1 1 auto;padding:9px 10px;font-size:12px;min-height:44px;box-shadow:2px 2px 0 var(--ink)}
+  .btn,.ghost{min-height:44px;padding:11px 14px}
+  .row{gap:10px}
+  .arow .ed{grid-template-columns:1fr}
+  .arow.indent{padding-left:0}
+  .acards{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .acard{padding:8px;box-shadow:3px 3px 0 var(--ink)}
+  .acard:hover{transform:none}
+  .adet-info h2{font-size:24px}
+  .thumb.big{width:110px;height:110px}
+  .studiobar{padding:10px 14px;gap:8px}
+  .studiobar a{margin-left:0}
+  #player{left:0;right:0;max-width:none;border-left:0;border-right:0;padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));gap:10px;box-shadow:0 -4px 0 var(--red)}
+  #pc{width:44px;height:44px}
+  .meta b{font-size:14px}
+  .meta small{font-size:12px}
+  .ctl button{width:42px;height:42px;font-size:16px}
+  #toast{top:auto;bottom:calc(96px + env(safe-area-inset-bottom,0px));width:calc(100% - 28px);max-width:none;white-space:normal}
+  .nowgrid{grid-template-columns:1fr;gap:22px}
+  .nowart{padding:14px 14px 22px;max-width:340px;width:100%;margin:0 auto}
+  #nTitle{font-size:34px}
+  #nArtist{font-size:18px}
+  .nctl{gap:12px}
+  .nctl button{width:52px;height:52px;font-size:18px}
+  .nctl .circ{width:72px;height:72px;font-size:26px}
+  .nextra{gap:8px}
+  .nextra button{min-height:40px}
+  .modal{padding:12px;align-items:end}
+  .sheet{width:100%;padding:18px;box-shadow:6px 6px 0 var(--red)}
+  .qsheet{width:100%;max-height:82vh}
+  .sheet .row .btn,.sheet .row .ghost{flex:1}
+  .qrow2 button{min-height:36px}
+}
 </style></head><body>
 
 <div class="banner" id="errBanner" hidden></div>
@@ -232,6 +336,7 @@ body.on-now #player{display:none!important}
           <button class="ghost small" data-shuf id="nShuf">Shuffle</button>
           <button class="ghost small" data-rep id="nRep">Repeat</button>
           <button class="ghost small" data-like id="nLike">♡ Like</button>
+          <button class="ghost small" data-openq id="nQueueBtn">Queue (0)</button>
           <label class="sleepl">Sleep
             <select id="nSleep">
               <option value="0">Off</option><option value="15">15 min</option><option value="30">30 min</option><option value="60">60 min</option><option value="end">End of track</option>
@@ -242,12 +347,7 @@ body.on-now #player{display:none!important}
       </div>
     </div>
   </div>
-  <h2 class="qhead">Queue</h2>
-  <div id="nQueue"></div>
-  <h2 class="qhead">Up next</h2>
-  <div id="nUpNext"></div>
-  <h2 class="qhead">Recently played</h2>
-  <div id="nRecent"></div>
+  
 </main>
 
 
@@ -292,7 +392,11 @@ body.on-now #player{display:none!important}
           <input id="sNewAlbum" placeholder="New album name" hidden>
         </fieldset>
         <label>Cover image</label>
-        <input type="file" id="sCover" accept="image/*">
+        <div class="coverzone" data-input="sCover" tabindex="0">
+          <input type="file" id="sCover" accept="image/*">
+          <button type="button" class="ghost small" data-paste="sCover">Paste image from clipboard</button>
+          <span class="hint">Or copy a picture and press Ctrl+V (⌘V on Mac) inside this box.</span>
+        </div>
         <div class="prev" id="sPrev"></div>
         <div class="row"><button class="btn" id="sGo" type="submit">Publish track</button></div>
       </form>
@@ -310,7 +414,13 @@ body.on-now #player{display:none!important}
         <label>Album artist</label><input id="aArtist">
         <label>Music director</label><input id="aMd">
         <label>Genre</label><select id="aGenre"></select>
-        <label>Album cover image</label><input type="file" id="aCover" accept="image/*">
+        <label>Album cover image</label>
+        <div class="coverzone" data-input="aCover" tabindex="0">
+          <input type="file" id="aCover" accept="image/*">
+          <button type="button" class="ghost small" data-paste="aCover">Paste image from clipboard</button>
+          <span class="hint">Or copy a picture and press Ctrl+V (⌘V on Mac) inside this box.</span>
+        </div>
+        <div class="prev" id="aPrev"></div>
         <label>Tracks</label>
         <div id="aList"></div>
         <div class="row"><button class="btn" id="aGo">Publish album</button></div>
@@ -445,11 +555,26 @@ window.addEventListener('hashchange',route);
 
 /* ---------- listener UI ---------- */
 function chips(){$('#chips').innerHTML=['All','Liked',...GEN].map(g=>`<button data-genre="${g}" class="${S.genre===g?'on':''}">${g}</button>`).join('')}
+function trackBar(t){const a=t.albumId&&S.albums[t.albumId];
+  return`<div class="tbar" data-swipe="${esc(t.id)}"><button class="tbar-main" data-play="${esc(t.id)}">${thumb(coverOf(t),t.id)}<span class="tb-txt"><b>${esc(t.title)}</b><small>${esc(t.artist)}${a?' · '+esc(a.title):''}</small></span></button><button class="ghost small tb-q" data-qadd="${esc(t.id)}" aria-label="Add to queue">+ Queue</button></div>`}
+function albumBar(a){const n=S.tracks.filter(t=>t.albumId===a.id).length;
+  return`<div class="tbar"><button class="tbar-main" data-playalbum="${esc(a.id)}">${thumb(a.cover,a.id)}<span class="tb-txt"><b>${esc(a.title)}</b><small>Album · ${esc(a.artist)} · ${n} track${n===1?'':'s'}</small></span></button></div>`}
 function grid(){
-  const L=vis(),el=$('#grid');
+  const el=$('#grid');
+  const L=vis();
+  if(S.q){
+    el.className='bars';
+    const albums=Object.values(S.albums).filter(a=>[a.title,a.artist,a.md].join(' ').toLowerCase().includes(S.q)).sort((x,y)=>(y.at||0)-(x.at||0));
+    let h='';
+    if(albums.length)h+='<div class="sect">Albums</div>'+albums.map(albumBar).join('');
+    if(L.length)h+='<div class="sect">Tracks</div>'+L.map(trackBar).join('');
+    el.innerHTML=h||`<div class="empty">Nothing matches “${esc(S.q)}”</div>`;
+    return;
+  }
+  el.className='grid';
   if(!L.length){el.innerHTML=`<div class="empty">${!S.loaded?'Connecting…':S.tracks.length?'Nothing matches that':'No music yet. Upload something in the Studio'}</div>`;return}
   el.innerHTML=L.map(t=>{const on=cur&&cur.id===t.id,a=t.albumId&&S.albums[t.albumId];
-    return`<div class="card"><button class="cov" data-play="${esc(t.id)}" aria-label="Play ${esc(t.title)}">${coverHTML(t)}<span class="pl">${on&&playing?'❚❚':'▶'}</span></button><b>${esc(t.title)}</b><small>${esc(t.artist)}${a?' · '+esc(a.title):''}</small><div class="cbtns"><button class="ghost small" data-qadd="${esc(t.id)}">+ Queue</button><button class="ghost small" data-qnext="${esc(t.id)}">Next</button></div></div>`}).join('')
+    return`<div class="card" data-swipe="${esc(t.id)}"><button class="cov" data-play="${esc(t.id)}" aria-label="Play ${esc(t.title)}">${coverHTML(t)}<span class="pl">${on&&playing?'❚❚':'▶'}</span></button><b>${esc(t.title)}</b><small>${esc(t.artist)}${a?' · '+esc(a.title):''}</small><div class="cbtns"><button class="ghost small" data-qadd="${esc(t.id)}">+ Queue</button><button class="ghost small" data-qnext="${esc(t.id)}">Next</button></div></div>`}).join('');
 }
 function plans(){$('#planGrid').innerHTML=PL.map(p=>{const mine=(S.sub?S.sub.plan:'free')===p.id;
   return`<div class="plan${p.hot?' hot':''}">${p.hot?'<em>Most loved</em>':''}<h3>${p.n}</h3><div class="price">${p.p}<small>${p.u}</small></div><ul>${p.f.map(x=>`<li>${x}</li>`).join('')}</ul>${mine?'<button class="ghost" disabled>Your plan ✓</button>':`<button class="${p.id==='free'?'ghost':'btn'}" data-plan="${p.id}">${p.id==='free'?'Switch to Free':'Choose '+p.n}</button>`}</div>`}).join('')}
@@ -625,7 +750,7 @@ document.addEventListener('keydown',e=>{
 });
 
 /* ---------- player and Now Playing UI ---------- */
-function ui(){bar();grid();prog()}
+function ui(){bar();grid();prog();renderQueueSheet()}
 function bar(){
   const el=$('#player');el.classList.toggle('show',!!cur);
   if(!cur){nowRender();return}
@@ -649,6 +774,7 @@ function nowProg(){
   $('#nTime').textContent=fmt(pos)+' / '+fmt(lim)+(S.sub?'':'  ·  30s preview');
   $('#nPP').textContent=playing?'❚❚':'▶';
 }
+S.catOpen=null;S.queueOpen=false;
 function nowRender(){
   const has=!!cur;
   $('#nEmpty').hidden=has;$('#nBody').hidden=!has;
@@ -663,21 +789,90 @@ function nowRender(){
     $('#nLike').textContent=isLiked(cur.id)?'♥ Liked':'♡ Like';$('#nLike').classList.toggle('lit',isLiked(cur.id));
     nowProg();
   }
-  const row=(t,actions)=>{const a=t.albumId&&S.albums[t.albumId];
-    return`<div class="qrow2">${thumb(coverOf(t),t.id)}<div class="qtxt"><b>${esc(t.title)}</b><small>${esc(t.artist)}${a?' · '+esc(a.title):''}</small></div>${actions}</div>`};
-  const qItems=S.queue.map((id,i)=>({t:trackById(id),i})).filter(x=>x.t);
-  $('#nQueue').innerHTML=qItems.map(({t,i})=>row(t,`<button class="ghost small" data-qplay="${i}">Play</button><button class="ghost small" data-qup="${i}" aria-label="Move up">↑</button><button class="ghost small" data-qdn="${i}" aria-label="Move down">↓</button><button class="ghost small danger" data-qrm="${i}" aria-label="Remove">✕</button>`)).join('')
-    ||'<div class="empty">Your queue is empty. Use “+ Queue” or “Next” on any track.</div>';
-  if(S.shuffle){
-    $('#nUpNext').innerHTML='<div class="empty">Smart shuffle picks the next song: no repeats, mixed artists.</div>';
-  }else{
-    const idx=cur?S.ctx.indexOf(cur.id):-1;
-    const up=S.ctx.slice(idx+1,idx+6).map(trackById).filter(Boolean);
-    $('#nUpNext').innerHTML=up.map(t=>row(t,'')).join('')||'<div class="empty">Nothing else in this list.</div>';
-  }
-  const rec=S.recent.map(trackById).filter(Boolean).slice(0,10);
-  $('#nRecent').innerHTML=rec.map(t=>row(t,`<button class="ghost small" data-playid="${esc(t.id)}">Play</button>`)).join('')||'<div class="empty">Nothing played yet.</div>';
+  $('#nQueueBtn').textContent='Queue ('+S.queue.length+')';
 }
+function queueSheetHTML(){
+  const items=S.queue.map((id,i)=>({t:trackById(id),i})).filter(x=>x.t);
+  const rows=items.map(({t,i})=>`<div class="qrow2">${thumb(coverOf(t),t.id)}<div class="qtxt"><b>${esc(t.title)}</b><small>${esc(t.artist)}</small></div><button class="ghost small" data-qplay="${i}">Play</button><button class="ghost small" data-qup="${i}" aria-label="Move up">↑</button><button class="ghost small" data-qdn="${i}" aria-label="Move down">↓</button><button class="ghost small danger" data-qrm="${i}" aria-label="Remove">✕</button></div>`).join('');
+  return`<div class="sheet qsheet"><h3>Queue <span class="cnt">${items.length}</span></h3>
+    ${rows||'<p class="hint">Your queue is empty. Swipe a track to the right, or tap “+ Queue”.</p>'}
+    <div class="row">${items.length?'<button class="ghost danger" data-qclear>Clear queue</button>':''}<button class="btn" data-close>Done</button></div></div>`;
+}
+function openQueue(){S.queueOpen=true;$('#modal').hidden=false;renderQueueSheet()}
+function renderQueueSheet(){
+  if(!S.queueOpen)return;
+  if($('#modal').hidden){S.queueOpen=false;return}
+  $('#modal').innerHTML=queueSheetHTML();
+}
+function playAlbum(id){
+  const ids=S.tracks.filter(t=>t.albumId===id).sort(byTrack).map(t=>t.id);
+  if(ids.length)playFrom(ids[0],ids);
+}
+
+/* swipe a track to the right to add it to the queue */
+let SW=null;
+document.addEventListener('pointerdown',e=>{
+  const el=e.target.closest&&e.target.closest('[data-swipe]');
+  if(!el||(e.button!==undefined&&e.button>0))return;
+  SW={el,id:el.dataset.swipe,x:e.clientX,y:e.clientY,dx:0,drag:false};
+},{passive:true});
+document.addEventListener('pointermove',e=>{
+  if(!SW)return;
+  const dx=e.clientX-SW.x,dy=e.clientY-SW.y;
+  if(!SW.drag){
+    if(Math.abs(dy)>Math.abs(dx)+8){SW=null;return}
+    if(dx>12&&dx>Math.abs(dy)*1.5)SW.drag=true;else return;
+  }
+  SW.dx=Math.max(0,dx);
+  SW.el.style.transform='translateX('+Math.min(SW.dx,140)+'px)';
+  SW.el.classList.toggle('armed',SW.dx>=90);
+},{passive:true});
+function endSwipe(){
+  if(!SW)return;
+  const s=SW;SW=null;
+  s.el.style.transform='';s.el.classList.remove('armed');
+  if(s.drag){
+    s.el.dataset.swiped='1';setTimeout(()=>{delete s.el.dataset.swiped},300);
+    if(s.dx>=90)addQueue(s.id,false);
+  }
+}
+document.addEventListener('pointerup',endSwipe);
+document.addEventListener('pointercancel',endSwipe);
+document.addEventListener('click',e=>{
+  const el=e.target.closest&&e.target.closest('[data-swipe]');
+  if(el&&el.dataset.swiped){e.stopPropagation();e.preventDefault()}
+},true);
+
+/* cover images: paste from the clipboard, or Ctrl/⌘+V inside a cover box */
+function setCoverFile(inputId,file){
+  const input=$('#'+inputId);if(!input||!file)return;
+  const dt=new DataTransfer();dt.items.add(file);
+  input.files=dt.files;
+  input.dispatchEvent(new Event('change',{bubbles:true}));
+  toast('Cover image added from the clipboard ✓');
+}
+async function pasteFromClipboard(inputId){
+  try{
+    if(!navigator.clipboard||!navigator.clipboard.read)throw new Error('unsupported');
+    const items=await navigator.clipboard.read();
+    for(const it of items){
+      const type=it.types.find(t=>t.startsWith('image/'));
+      if(type){const blob=await it.getType(type);return setCoverFile(inputId,new File([blob],'pasted-cover.'+(type.split('/')[1]||'png'),{type}))}
+    }
+    toast('No image on the clipboard. Copy an image first.');
+  }catch(e){toast('Tap the cover box, then press Ctrl+V (⌘V on Mac) to paste.')}
+}
+document.addEventListener('paste',e=>{
+  const zone=e.target&&e.target.closest&&e.target.closest('.coverzone');
+  if(!zone)return;
+  const items=[...(e.clipboardData?e.clipboardData.items:[])];
+  const it=items.find(i=>i.type&&i.type.startsWith('image/'));
+  if(!it)return;
+  e.preventDefault();
+  setCoverFile(zone.dataset.input,it.getAsFile());
+});
+document.addEventListener('click',e=>{if(e.target&&e.target.id==='modal')$('#modal').hidden=true});
+$('#aCover').addEventListener('change',()=>{const f=$('#aCover').files[0];$('#aPrev').innerHTML=f?`<img src="${URL.createObjectURL(f)}" alt="">`:''});
 
 /* ---------- player clicks (queue, shuffle, repeat, like) ---------- */
 document.addEventListener('click',e=>{
@@ -692,6 +887,12 @@ document.addEventListener('click',e=>{
   if('shuf' in D)return setShuffle(!S.shuffle);
   if('rep' in D)return cycleRepeat();
   if('like' in D)return toggleLike();
+  if('openq' in D)return openQueue();
+  if('qclear' in D){S.queue=[];ui();return}
+  if('open' in D){S.catOpen=D.open;cat();return}
+  if('cback' in D){S.catOpen=null;cat();return}
+  if('playalbum' in D)return playAlbum(D.playalbum);
+  if('paste' in D)return pasteFromClipboard(D.paste);
 });
 
 /* ---------- subscriptions ---------- */
@@ -808,7 +1009,7 @@ $('#aFolder').onchange=async e=>{
   finishAlbum(drafts,albumFromName(folder));
 };
 $('#aList').addEventListener('input',e=>{const i=e.target.dataset.di;if(i==null)return;S.drafts[+i][e.target.dataset.k]=e.target.value});
-function resetAlbum(){S.drafts=[];S.zipImg=null;$('#aZip').value='';$('#aFolder').value='';$('#aCover').value='';$('#aTitle').value='';$('#aArtist').value='';$('#aMd').value='';status('');renderDrafts()}
+function resetAlbum(){S.drafts=[];S.zipImg=null;$('#aZip').value='';$('#aFolder').value='';$('#aCover').value='';$('#aPrev').innerHTML='';$('#aTitle').value='';$('#aArtist').value='';$('#aMd').value='';status('');renderDrafts()}
 async function pubAlbum(){
   const rows=S.drafts,title=$('#aTitle').value.trim(),artist=$('#aArtist').value.trim(),md=$('#aMd').value.trim(),genre=$('#aGenre').value,btn=$('#aGo');
   if(!rows.length)return toast('Upload an album first.');
@@ -834,19 +1035,36 @@ async function pubAlbum(){
 /* ---------- studio: catalogue ---------- */
 function trow(t,indent){const a=t.md?' · MD '+esc(t.md):'';
   return`<div class="arow${indent?' indent':''}">${thumb(t.cover||'',t.id)}<div><b>${esc(t.title)}</b><small>${esc(t.artist)}${a}</small></div><button class="ghost small" data-et="${esc(t.id)}">Edit</button><button class="ghost small danger" data-dt="${esc(t.id)}">Delete</button></div>`}
+function albumCard(a){const n=S.tracks.filter(t=>t.albumId===a.id).length;
+  return`<button class="acard" data-open="${esc(a.id)}"><span class="acov">${a.cover?`<img src="${esc(a.cover)}" alt="">`:art(a.id)}</span><b>${esc(a.title)}</b><small>${esc(a.artist)} · ${n} track${n===1?'':'s'}</small></button>`}
 function cat(){
+  const el=$('#cat');
+  if(S.catOpen){renderAlbumDetail(S.catOpen);return}
   const al=Object.values(S.albums).sort((a,b)=>(b.at||0)-(a.at||0));
-  let h='';
-  al.forEach(a=>{
-    const kids=S.tracks.filter(t=>t.albumId===a.id).sort(byTrack);
-    h+=`<div class="arow albumrow">${thumb(a.cover,a.id)}<div><b>${esc(a.title)}</b><small>Album · ${esc(a.artist)}${a.md?' · MD '+esc(a.md):''} · ${kids.length} track${kids.length===1?'':'s'}</small></div><button class="ghost small" data-ea="${esc(a.id)}">Edit</button><button class="ghost small danger" data-da="${esc(a.id)}">Delete</button></div>`;
-    kids.forEach(t=>h+=trow(t,true));
-  });
   const singles=S.tracks.filter(t=>!t.albumId||!S.albums[t.albumId]);
-  if(singles.length){h+='<div class="sect">Singles</div>';singles.forEach(t=>h+=trow(t,false))}
-  $('#cat').innerHTML=h||'<div class="empty">Nothing here yet. Upload your first track.</div>';
+  let h=al.map(albumCard).join('');
+  if(singles.length)h+=`<button class="acard" data-open="singles"><span class="acov">${art('singles')}</span><b>Singles</b><small>${singles.length} track${singles.length===1?'':'s'}</small></button>`;
+  el.innerHTML=h?`<div class="acards">${h}</div>`:'<div class="empty">Nothing here yet. Upload your first track.</div>';
+}
+function renderAlbumDetail(id){
+  const el=$('#cat');let title,sub,cover,tracks,actions='';
+  if(id==='singles'){
+    title='Singles';sub='Tracks without an album';cover='';
+    tracks=S.tracks.filter(t=>!t.albumId||!S.albums[t.albumId]).sort(byTrack);
+  }else{
+    const a=S.albums[id];
+    if(!a){S.catOpen=null;cat();return}
+    title=a.title;sub=a.artist+(a.md?' · MD '+a.md:'');cover=a.cover||'';
+    tracks=S.tracks.filter(t=>t.albumId===id).sort(byTrack);
+    actions=`<button class="ghost small" data-ea="${esc(a.id)}">Edit album</button><button class="ghost small danger" data-da="${esc(a.id)}">Delete album</button>`;
+  }
+  el.innerHTML=`<div class="adet-top"><button class="ghost small" data-cback>← All albums</button></div>
+    <div class="adet"><div class="thumb big">${cover?`<img src="${esc(cover)}" alt="">`:art(id)}</div>
+      <div class="adet-info"><h2>${esc(title)}</h2><p>${esc(sub)}</p><p class="hint">${tracks.length} track${tracks.length===1?'':'s'}</p><div class="row" style="margin-top:0">${actions}</div></div></div>
+    <div class="tracklist">${tracks.map((t,i)=>`<div class="arow"><span class="num">${i+1}</span>${thumb(coverOf(t),t.id)}<div><b>${esc(t.title)}</b><small>${esc(t.artist)}${t.md?' · MD '+esc(t.md):''}</small></div><button class="ghost small" data-et="${esc(t.id)}">Edit</button><button class="ghost small danger" data-dt="${esc(t.id)}">Delete</button></div>`).join('')||'<div class="empty">No tracks here yet.</div>'}</div>`;
 }
 function openEdit(kind,id){
+  S.queueOpen=false;
   const isT=kind==='track',x=isT?S.tracks.find(t=>t.id===id):S.albums[id];
   if(!x)return;
   S.edit={kind,id};
@@ -855,7 +1073,12 @@ function openEdit(kind,id){
     <label>Artist</label><input id="eA" value="${esc(x.artist)}">
     <label>Music director</label><input id="eM" value="${esc(x.md||'')}">
     ${isT?`<label>Album</label><select id="eAl"><option value="">No album (single)</option>${albumChoices(x.albumId)}</select>`:''}
-    <label>Replace cover image (optional)</label><input type="file" id="eC" accept="image/*">
+    <label>Replace cover image (optional)</label>
+    <div class="coverzone" data-input="eC" tabindex="0">
+      <input type="file" id="eC" accept="image/*">
+      <button type="button" class="ghost small" data-paste="eC">Paste image from clipboard</button>
+      <span class="hint">Or copy a picture and press Ctrl+V (⌘V on Mac) inside this box.</span>
+    </div>
     <div class="row"><button class="btn" data-esave>Save</button><button class="ghost" data-close>Cancel</button></div></div>`;
   $('#modal').hidden=false;
 }
@@ -884,7 +1107,7 @@ async function delAlbum(id){
   const a=S.albums[id];if(!a)return;
   try{
     await req('DELETE','/api/albums/'+id);
-    toast('Album and its tracks removed.');
+    S.catOpen=null;toast('Album and its tracks removed.');
   }catch(e){toast('Couldn’t delete that album.')}
 }
 function stab(n){$$('.stabs button').forEach(b=>b.classList.toggle('on',b.dataset.stab===n));for(const k of['single','album','cat'])$('#'+(k==='single'?'sForm':'p-'+k)).hidden=k!==n;if(n==='cat')cat()}
