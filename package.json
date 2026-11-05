@@ -1,0 +1,21 @@
+{
+  "name": "imposter-server",
+  "version": "1.0.0",
+  "description": "Imposter music streaming: listener app, Studio and API on one server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "import": "node scripts/import-folder.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "music-metadata": "^7.14.0"
+  }
+}

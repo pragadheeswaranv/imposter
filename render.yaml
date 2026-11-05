@@ -1,0 +1,25 @@
+# Render Blueprint: one web service (app + API) and one PostgreSQL database.
+# Deploy: Render dashboard -> New -> Blueprint -> pick this repository.
+services:
+  - type: web
+    name: imposter
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/me
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: DATABASE_URL
+        fromDatabase:
+          name: imposter-db
+          property: connectionString
+      - key: ADMIN_KEY
+        sync: false   # set in the dashboard: a long secret, at least 12 characters
+
+databases:
+  - name: imposter-db
+    plan: free
+    databaseName: imposter
+    user: imposter
